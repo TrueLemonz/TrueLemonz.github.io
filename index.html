@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="image.png" type="image/png">
+    <title>Lemonz's website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Lemonz's website</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#terrible-Music">Terrible Music</a>
+            <a href="#code">Code</a>
+            <a href="#contact">Contact me</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>TrueLemonz</h1>
+        <p>That guy, I’m that guy. That’s me.</p>
+        <button onclick="location.href='#terrible-Music'">Hell Yeah</button>
+    </section>
+
+    <section id="terrible-Music" class="section">
+        <h2>Terrible Music</h2>
+
+        <div class="music">
+            <div class="song">
+                <h3>tobesampled</h3>
+                <audio src="Music/Full songs/tobesampled.wav" controls></audio>
+                <p>A bit messy, but I quite like this one.</p>
+            </div>
+
+    </section>
+
+    <section id="terrible-Music" class="section">
+        <h2>Scrapped songs</h2>
+        <div class="music">
+
+            <div class="song"> <!-- Song one, like.wav -->
+                <h3>like</h3>
+                <audio src="Music/Scraps/like.wav" controls></audio>
+                <p>I experimented a lot with this one.</p>
+            </div>
+
+            <div class="song"> <!-- Song two, moi.wav -->
+                <h3>Second Song</h3>
+                <audio src="Music/Scraps/moi.wav" controls></audio>
+                <p>I played around with the drums a lot here and quite like the way it turned out.</p>
+            </div>
+
+            <div class="song"> <!-- Song three, muic.wav -->
+                <h3>Muic</h3>
+                <audio src="Music/Scraps/muic.wav" controls></audio>
+                <p>I like the chord progressions here.</p>
+            </div>
+
+            <div class="song"> <!-- Song three, muic.wav -->
+                <h3>Suspicous song..</h3>
+                <audio src="Music/Scraps/thanf.wav" controls></audio>
+                <p>Why</p>
+            </div>
+
+            <div class="song"> <!-- Song three, muic.wav -->
+                <h3>chanting song idk</h3>
+                <audio src="Music/Scraps/vhug.wav" controls></audio>
+                <p>Sampled an italian church.</p>
+            </div>
+
+            <div class="song">
+                <h3>Triple-S</h3>
+                <audio src="Music/Scraps/TRIPLE-S.wav" controls></audio>
+                <p>It sounds like it would make a good ringtone</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="section">
+        <p>&copy; Me i'm lemon | All Rights Reserved</p>
+    </footer>
+
+</body>
+
+<script>
+    document.querySelectorAll("audio").forEach(audio => {
+        audio.volume = 0.3; // Set volume to 30%
+    });
+</script>
+
+</html>
