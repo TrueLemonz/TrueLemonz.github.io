@@ -1,3 +1,14 @@
+/* Define color palette */
+:root {
+    --basecolor1: #403F4C; /* Dark Gray */
+    --basecolor2: #E84855; /* Red */
+    --basecolor3: #F9DC5C; /* Yellow */
+    --basecolor4: #3185FC; /* Blue */
+    --basecolor5: #EFBCD5; /* Pink */
+    --textcolor: #f5f5f5; /* Light text color */
+    --bgcolor: #2b2b2b; /* Dark background */
+}
+
 /* Reset some default styling */
 * {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -8,27 +19,27 @@
 
 body {
     font-family: Arial, sans-serif;
-    color: #f5f5f5;
-    background-color: #2b2b2b;
+    color: var(--textcolor);
+    background-color: var(--bgcolor);
     line-height: 1.6;
 }
 
 /* Header */
 header {
     font-family: 'Times New Roman', Times, serif;
-    background-color: transparent;
+    background-color: rgba(43, 43, 43, 0.94);
     color: transparent;
     padding: 1.5em 0;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
-    top:0;
+    top: 0;
 }
 
 header h1 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 2.5em;
-    color: #e74c3c;
+    color: var(--basecolor2);
     margin-bottom: 0.3em;
 }
 
@@ -39,7 +50,7 @@ nav {
 }
 
 nav a {
-    color: #333;
+    color: #797979;
     text-decoration: none;
     font-weight: bold;
     font-size: 1.1em;
@@ -47,15 +58,16 @@ nav a {
 }
 
 nav a:hover {
-    color: #e74c3c;
+    color: var(--basecolor2);
 }
 
 /* Hero Section */
 .hero {
     font-family: 'Times New Roman', Times, serif;
-    background: radial-gradient(circle at center, #333, #797979), url('https://i.pinimg.com/originals/3e/ba/ef/3ebaef77b4de21932f4d33412db17673.png') no-repeat center center/cover;
+    background: radial-gradient(circle at center, var(--basecolor4), var(--basecolor3)),
+        url('https://i.pinimg.com/originals/3e/ba/ef/3ebaef77b4de21932f4d33412db17673.png') no-repeat center center/cover;
     height: 60vh;
-    color: #f5f5f5;
+    color: var(--textcolor);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,7 +91,7 @@ nav a:hover {
     padding: 12px 24px;
     font-size: 1.1em;
     cursor: pointer;
-    background-color: #e74c3c;
+    background-color: var(--basecolor2);
     border: none;
     color: #fff;
     border-radius: 5px;
@@ -96,39 +108,42 @@ nav a:hover {
 .section {
     padding: 2.5em 1.5em;
     text-align: center;
-    background-color: #3b3b3b;
+    background-color: var(--basecolor1);
     margin: 1.8em 0;
-    border-bottom: 4px solid #ffd700;
+    border-bottom: 4px solid var(--basecolor3);
     border-radius: 10px;
-    color: #f5f5f5;
+    color: var(--textcolor);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+
+
 h2 {
     font-size: 2.2em;
-    color: #dddddd;
+    color: var(--basecolor4);
     margin-bottom: 1.2em;
 }
 
+/* Music Section */
 .music {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 1.2em;
+    gap: 1.7em;
     justify-content: center;
 }
 
 .music h3 {
     text-align: center;
-    text-shadow: #2b2b2b;
+    text-shadow: var(--bgcolor);
 }
 
 .song {
-    background: #ffeb3b;
-    color: #333;
-    padding: 1em;
+    background: var(--basecolor3);
+    color: var(--basecolor1);
+    padding: 1.2em;
     border-radius: 4px;
-    border-color: #3b3b3b;
+    border-color: var(--bgcolor);
     align-self: center;
     width: 500px;
     text-align: left;
@@ -136,28 +151,40 @@ h2 {
     transition: transform 0.2s ease;
 }
 
+.song img {
+    display: block; /* Makes the image a block element */
+    margin: 0 auto; /* Centers the image horizontally */
+    padding: 1em;
+}
+
 .song:hover {
-    transform: translateY(-5px);
-    background: #ffeb3bdf;
+    transform: translateY(-5px) scale(1.05);
+    background-image: linear-gradient(var(--basecolor3), #ffeb3bdf);
 }
 
 .song h3 {
     margin-bottom: 0.5em;
-    font-size: 1.3em;
-    color: #333;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--basecolor1);
 }
 
 .song audio {
-    width: 100%; /* Set width to fill container */
+    width: 100%;
     border-radius: 8px;
     box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.422);
-    background-color: #333; /* Set background color */
-    outline: none;
-  }
+    background-color: var(--basecolor1);
+    outline: black;
+}
+
+.song audio .controls .volume-container:hover .volume-slider {
+  left: -123px;
+  width: 120px;
+} */
 
 /* Footer */
 footer {
-    background: #222;
+    background: var(--bgcolor);
     color: #bbb;
     text-align: center;
     padding: 1.8em 0;
