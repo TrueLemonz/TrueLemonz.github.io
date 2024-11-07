@@ -33,7 +33,9 @@ header {
     text-align: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
+    z-index: 1000; /* Updated to a high value */
     top: 0;
+    transition: top 0.3s; /* Smooth transition for hiding/showing */
 }
 
 header h1 {
@@ -62,11 +64,43 @@ nav a:hover {
 }
 
 /* Hero Section */
+@keyframes rock {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
+.lemon {
+    display: inline-block;
+    text-align: center;
+}
+.click-count {
+    font-size: 4em;  /* Make the number large */
+    color: var(--basecolor2); /* Use the same color as the background or adjust as needed */
+    margin-top: 10px; /* Add some space between the lemon and the number */
+}
+
+.lemon img {
+    width: 150px;
+    animation: rock 3s ease-in-out infinite;
+    li { cursor: pointer; }
+    transition: transform 0.2s ease;  /* Ensure transition for transform only */
+    transform-origin: center center;  /* Shrink from the center */
+    will-change: transform;  /* Performance optimization */
+}
+
+
+
 .hero {
     font-family: 'Times New Roman', Times, serif;
-    background: radial-gradient(circle at center, var(--basecolor4), var(--basecolor3)),
-        url('https://i.pinimg.com/originals/3e/ba/ef/3ebaef77b4de21932f4d33412db17673.png') no-repeat center center/cover;
-    height: 60vh;
+    background: radial-gradient(circle at center, var(--basecolor3), var(--basecolor4)); /* Only gradient background */
+    height: 80vh;
     color: var(--textcolor);
     display: flex;
     justify-content: center;
@@ -75,6 +109,9 @@ nav a:hover {
     text-align: center;
     padding: 2em 1em;
 }
+
+
+
 
 .hero h1 {
     font-size: 3.5em;

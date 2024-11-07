@@ -20,10 +20,15 @@
     </header>
 
     <section class="hero">
+        <div class="lemon">
+            <img src="Images/LemonBackground.png" alt="Lemon">
+            <div class="click-count">0</div>
+        </div>
         <h1>TrueLemonz</h1>
         <p>That guy, I’m that guy. That’s me.</p>
         <button onclick="location.href='#terrible-Music'">Hell Yeah</button>
     </section>
+    
 
     <section id="terrible-Music" class="section">
         <h2>Terrible Music</h2>
@@ -31,7 +36,7 @@
         <div class="music">
             <div class="song">
                 <h3>tobesampled</h3>
-                <img src="Images/song.png" height="130" width="175">
+                <img src="Images/vinyl.png" height="175" width="175">
                 <audio src="Music/Full songs/tobesampled.wav" controls></audio>
                 <p>A bit messy, but I quite like this one.</p>
             </div>
@@ -92,10 +97,10 @@
 
 </body>
 
-<script>
-    document.querySelectorAll("audio").forEach(audio => {
-        audio.volume = 0.3; // Set volume to 30%
-    });
-</script>
+<script src="Scripts/autovolume.js"></script>
+
+<script src="Scripts/headerscroll.js"></script>
+
+<script src="Scripts/lemonclick.js"></script>
 
 </html>
