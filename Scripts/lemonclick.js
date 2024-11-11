@@ -115,8 +115,6 @@ function updateButtonColors() {
     }
 }
 
-
-
 function createParticles(img) {
     if (particles.length >= 60) {
         const oldestParticle = particles.shift();
@@ -184,7 +182,10 @@ function addButtons(hero, clickCountDisplay) {
     shopButtonsContainer.classList.add('shop-buttons-container');
     hero.appendChild(shopButtonsContainer);
 
-    // Create the "farmer" button
+    // Create the "farmer" button and counter container
+    const shopButton1Container = document.createElement('div');
+    shopButton1Container.classList.add('shop-button-container');
+    
     const shopButton1 = document.createElement('button');
     shopButton1.classList.add('shop');
     const farmerImage = document.createElement('img');
@@ -192,10 +193,23 @@ function addButtons(hero, clickCountDisplay) {
     farmerImage.style.width = '40px';
     farmerImage.style.height = '40px';
     shopButton1.appendChild(farmerImage);
-    shopButton1.appendChild(document.createTextNode(`Purchase farmer (Price: ${getFarmerPrice()} lemons)`));
-    shopButtonsContainer.appendChild(shopButton1);
+    const farmerText = document.createElement('span');
+    farmerText.textContent = `Purchase farmer (Price: ${getFarmerPrice()} lemons)`;
+    shopButton1.appendChild(farmerText);
+    shopButton1Container.appendChild(shopButton1);
 
-    // Create the "lemon tree" button
+    // Create and append the farmer counter
+    const farmerCounter = document.createElement('div');
+    farmerCounter.classList.add('click-count');
+    farmerCounter.textContent = `Farmers: ${farmers}`;
+    shopButton1Container.appendChild(farmerCounter);
+
+    shopButtonsContainer.appendChild(shopButton1Container);
+
+    // Create the "lemon tree" button and counter container
+    const shopButton2Container = document.createElement('div');
+    shopButton2Container.classList.add('shop-button-container');
+    
     const shopButton2 = document.createElement('button');
     shopButton2.classList.add('shop');
     const treeImage = document.createElement('img');
@@ -203,8 +217,25 @@ function addButtons(hero, clickCountDisplay) {
     treeImage.style.width = '40px';
     treeImage.style.height = '40px';
     shopButton2.appendChild(treeImage);
-    shopButton2.appendChild(document.createTextNode(`Purchase lemon tree (Price: ${getLemonTreePrice()} lemons)`));
-    shopButtonsContainer.appendChild(shopButton2);
+    const treeText = document.createElement('span');
+    treeText.textContent = `Purchase lemon tree (Price: ${getLemonTreePrice()} lemons)`;
+    shopButton2.appendChild(treeText);
+    shopButton2Container.appendChild(shopButton2);
+
+    // Create and append the lemon tree counter
+    const lemonTreeCounter = document.createElement('div');
+    lemonTreeCounter.classList.add('click-count');
+    lemonTreeCounter.textContent = `Lemon Trees: ${lemonTrees}`;
+    shopButton2Container.appendChild(lemonTreeCounter);
+
+    shopButtonsContainer.appendChild(shopButton2Container);
+
+    // Style the buttons container
+    const allButtonsContainers = [shopButton1Container, shopButton2Container];
+    allButtonsContainers.forEach(container => {
+        container.style.marginBottom = '1em'; // Space between button and counter
+        container.style.textAlign = 'center'; // Center button and counter
+    });
 
     // Style the buttons
     const allButtons = [shopButton1, shopButton2];
@@ -227,6 +258,7 @@ function addButtons(hero, clickCountDisplay) {
             clickCountDisplay.textContent = lemonClicks.toFixed(1);
             updateButtonPrices();
             shopButton1.style.backgroundColor = ''; // Reset color
+            farmerCounter.textContent = `Farmers: ${farmers}`; // Update counter
         } else {
             console.log('Not enough lemons for farmer!');
             Errorsound.play();
@@ -244,6 +276,7 @@ function addButtons(hero, clickCountDisplay) {
             clickCountDisplay.textContent = lemonClicks.toFixed(1);
             updateButtonPrices();
             shopButton2.style.backgroundColor = ''; // Reset color
+            lemonTreeCounter.textContent = `Lemon Trees: ${lemonTrees}`; // Update counter
         } else {
             console.log('Not enough lemons for lemon tree!');
             Errorsound.play();

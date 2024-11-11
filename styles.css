@@ -174,8 +174,24 @@ nav a:hover {
 /* Create a container specifically for the .shop buttons and make it flex horizontally */
 .shop-buttons-container {
     display: flex;
-    gap: 1em; /* Adds space between the shop buttons */
-    margin-top: 1em; /* Space between the hell-yeah and shop buttons */
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 2em; /* Adds space between the buttons */
+    align-items: center; /* Center the buttons horizontally */
+    margin-top: 1em; /* Space between hell-yeah and shop buttons */
+}
+
+.shop-button-container {
+    display: flex;
+    flex-direction: column; /* Stack the button and the counter vertically */
+    align-items: center; /* Center the elements */
+}
+
+/* Style the counters */
+.click-count {
+    font-size: 1em;  /* Adjust the size */
+    font-weight: bolder;
+    color: var(--basecolor2); /* Same color as the buttons or adjust */
+    margin-top: 10px; /* Add space between the button and the counter */
 }
 
 /* Style the .shop buttons */
