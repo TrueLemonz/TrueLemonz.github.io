@@ -61,6 +61,7 @@ nav a {
 
 nav a:hover {
     color: var(--basecolor2);
+    cursor: pointer;
 }
 
 /* Hero Section */
@@ -81,7 +82,8 @@ nav a:hover {
     text-align: center;
 }
 .click-count {
-    font-size: 4em;  /* Make the number large */
+    font-size: 5em;  /* Make the number large */
+    font-weight: bolder;
     color: var(--basecolor2); /* Use the same color as the background or adjust as needed */
     margin-top: 10px; /* Add some space between the lemon and the number */
 }
@@ -100,14 +102,47 @@ nav a:hover {
 .hero {
     font-family: 'Times New Roman', Times, serif;
     background: radial-gradient(circle at center, var(--basecolor3), var(--basecolor4)); /* Only gradient background */
-    height: 80vh;
+    height: 100vh;
     color: var(--textcolor);
-    display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
     text-align: center;
     padding: 2em 1em;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+}
+
+
+.audio-player {
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow to progress bar */
+    position: relative;
+    margin-top: 10px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    width: 0%;
+}
+
+.volume {
+    width: 100px;
+    height: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
 }
 
 
@@ -124,10 +159,10 @@ nav a:hover {
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
-.hero button {
+.hero button.hell-yeah {
     padding: 12px 24px;
     font-size: 1.1em;
-    cursor: pointer;
+    cursor: pointer !important;    
     background-color: var(--basecolor2);
     border: none;
     color: #fff;
@@ -136,8 +171,34 @@ nav a:hover {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.hero button:hover {
+/* Create a container specifically for the .shop buttons and make it flex horizontally */
+.shop-buttons-container {
+    display: flex;
+    gap: 1em; /* Adds space between the shop buttons */
+    margin-top: 1em; /* Space between the hell-yeah and shop buttons */
+}
+
+/* Style the .shop buttons */
+.hero button.shop {
+    padding: 20px 24px;
+    font-size: 1.1em;
+    cursor: pointer !important;    
+    background-color: var(--basecolor1);
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+
+.hero button.hell-yeah:hover {
     background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+.hero button.shop:hover {
+    background-color: #1f1f1f;
     transform: scale(1.05);
 }
 
@@ -176,6 +237,7 @@ h2 {
 }
 
 .song {
+    position: relative;
     background: var(--basecolor3);
     color: var(--basecolor1);
     padding: 1.2em;
