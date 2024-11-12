@@ -103,9 +103,9 @@ function loadGameData() {
 
 function autoGenerateLemons() {
     // Add lemons for each lemon tree (1 per second)
-    lemonClicks += (lemonTrees / 10) * lemonades+1;
+    lemonClicks += (lemonTrees / 10) * (lemonades + 1);
     // Add lemons for each farmer (10 per second)
-    lemonClicks += ((farmers * 10) / 10) * lemonades+1;
+    lemonClicks += ((farmers * 10) / 10) * (lemonades + 1);
 
     // Update the display
     const clickCountDisplay = document.querySelector('.click-count');
