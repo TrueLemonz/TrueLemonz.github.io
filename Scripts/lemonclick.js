@@ -4,8 +4,11 @@ let particles = [];
 let easteregg = false;
 let lemonTrees = 0;
 let farmers = 0;
+let lemonades = 0;
 const lemonTreeBasePrice = 20;  // Example starting price
 const farmerBasePrice = 100;  // Example starting price
+const lemonadefarmerprice = 80;
+const lemonadeprice = 100000;
 
 const Successsound = new Audio('SFX/success.mp3');
 const Errorsound = new Audio('SFX/error.mp3');
@@ -100,9 +103,9 @@ function loadGameData() {
 
 function autoGenerateLemons() {
     // Add lemons for each lemon tree (1 per second)
-    lemonClicks += lemonTrees / 10;
+    lemonClicks += (lemonTrees / 10) * lemonades+1;
     // Add lemons for each farmer (10 per second)
-    lemonClicks += (farmers * 10) / 10;
+    lemonClicks += ((farmers * 10) / 10) * lemonades+1;
 
     // Update the display
     const clickCountDisplay = document.querySelector('.click-count');
@@ -136,6 +139,15 @@ function updateButtonColors() {
         } else {
             shopButtons[1].style.backgroundColor = ''; // Reset to default color
             shopButtons[1].style.pointerEvents = 'auto'; // Enable hover and click
+        }
+
+        // Button 3 (lemonade)
+        if (lemonClicks < lemonadeprice && farmers < lemonadefarmerprice) {
+            shopButtons[2].style.backgroundColor = '#8B0000'; // Dark red if not enough lemons
+            shopButtons[2].style.pointerEvents = 'none'; // Disable hover effect and click
+        } else {
+            shopButtons[2].style.backgroundColor = ''; // Reset to default color
+            shopButtons[2].style.pointerEvents = 'auto'; // Enable hover and click
         }
     }
 }
@@ -328,6 +340,7 @@ function addButtons(hero, clickCountDisplay) {
             clickCountDisplay.textContent = lemonClicks.toFixed(1);
             farmerCounter.textContent = `Farmers: ${farmers}`;
             alert('You made lemonade!');
+            lemonades ++;
             updateButtonPrices();
         } else {
             console.log('Not enough resources to make lemonade!');
