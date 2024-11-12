@@ -105,7 +105,7 @@ function autoGenerateLemons() {
     // Add lemons for each lemon tree (1 per second)
     lemonClicks += ((lemonTrees * 8) / 10) * (lemonades + 1);
     // Add lemons for each farmer (10 per second)
-    lemonClicks += ((farmers * 20) / 10) * (lemonades + 1);
+    lemonClicks += (((farmers * 20)*((lemonTrees/5)+1)) / 10) * (lemonades + 1);
 
     // Update the display
     const clickCountDisplay = document.querySelector('.click-count');
