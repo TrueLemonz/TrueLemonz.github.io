@@ -95,7 +95,7 @@ function loadGameData() {
     lemonClicks = parseFloat(localStorage.getItem('lemonClicks')) || 0;
     lemonTrees = parseInt(localStorage.getItem('lemonTrees')) || 0;
     farmers = parseInt(localStorage.getItem('farmers')) || 0;
-    easteregg = localStorage.getItem('easteregg') === 'true';
+    easteregg = localStorage.getItem('easteregg') === 'false';
 }
 
 function autoGenerateLemons() {
@@ -281,7 +281,7 @@ function addButtons(hero, clickCountDisplay) {
             farmers += 1;
             Successsound.play();
             clickCountDisplay.textContent = lemonClicks.toFixed(1);
-            updateButtonPrices();
+            updateButtonPrices(); // Update after purchase
             shopButton1.style.backgroundColor = ''; // Reset color
             farmerCounter.textContent = `Farmers: ${farmers}`; // Update counter
         } else {
@@ -289,7 +289,7 @@ function addButtons(hero, clickCountDisplay) {
             Errorsound.play();
             shopButton1.style.backgroundColor = 'red'; // Turn button red
         }
-    });
+    });    
 
     // Button 2: Purchase lemon tree
     shopButton2.addEventListener('click', () => {
@@ -299,7 +299,7 @@ function addButtons(hero, clickCountDisplay) {
             lemonTrees += 1;
             Successsound.play();
             clickCountDisplay.textContent = lemonClicks.toFixed(1);
-            updateButtonPrices();
+            updateButtonPrices(); // Update after purchase
             shopButton2.style.backgroundColor = ''; // Reset color
             lemonTreeCounter.textContent = `Lemon Trees: ${lemonTrees}`; // Update counter
         } else {
@@ -352,5 +352,5 @@ function updateButtonPrices() {
         shopButtons[1].appendChild(document.createTextNode(`Purchase lemon tree (Price: ${getLemonTreePrice()} lemons)`));
     }
     updateButtonColors();
-
 }
+
