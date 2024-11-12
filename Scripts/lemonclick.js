@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 unveilsfx.play();
                 addButtons(hero, clickCountDisplay);
                 easteregg = true;
-                hero.style.height = '120vh';
+                hero.style.height = '180vh';
                 saveGameData(); // Save easteregg state to localStorage
             }
 
