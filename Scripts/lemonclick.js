@@ -1,24 +1,15 @@
+// Initialize variables
 let lemonClicks = 0;
 let particles = [];
 let easteregg = false;
 let lemonTrees = 0;
 let farmers = 0;
 
-
-document.cookie = "d=John Doe";
-
-document.cookie = "a=John Doe";
-
-document.cookie = "s=John Doe";
-
-
-const lemonTreeBasePrice = 10; // Initial price for one lemon tree
-const farmerBasePrice = 100; // Initial price for one farmer
-
-const Successsound = new Audio('SFX/success.mp3');
-const Errorsound = new Audio('SFX/error.mp3');
-
+// Load saved data from localStorage
 document.addEventListener('DOMContentLoaded', () => {
+    // Load saved data
+    loadGameData();
+
     const img = document.querySelector('.lemon img');
     const hero = document.querySelector('.hero');
     const clickCountDisplay = document.querySelector('.click-count');
@@ -43,10 +34,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 unveilsfx.play();
                 addButtons(hero, clickCountDisplay);
                 easteregg = true;
+                hero.style.height = '120vh';
             }
 
             createParticles(img);
+            saveGameData(); // Save data after each click
         });
+
+        // Load buttons if easteregg is already unlocked
+        if (easteregg) {
+            addButtons(hero, clickCountDisplay);
+        }
 
         img.addEventListener('mousedown', () => {
             console.log('Mouse down');
@@ -70,8 +68,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Start the automatic lemon generation
-    setInterval(autoGenerateLemons, 1000/10);
+    setInterval(autoGenerateLemons, 1000 / 10);
 });
+
+// Save game data to localStorage
+function saveGameData() {
+    localStorage.setItem('lemonClicks', lemonClicks);
+    localStorage.setItem('lemonTrees', lemonTrees);
+    localStorage.setItem('farmers', farmers);
+    localStorage.setItem('easteregg', easteregg);
+}
+
+// Load game data from localStorage
+function loadGameData() {
+    lemonClicks = parseFloat(localStorage.getItem('lemonClicks')) || 0;
+    lemonTrees = parseInt(localStorage.getItem('lemonTrees')) || 0;
+    farmers = parseInt(localStorage.getItem('farmers')) || 0;
+    easteregg = localStorage.getItem('easteregg') === 'true';
+}
 
 function autoGenerateLemons() {
     // Add lemons for each lemon tree (1 per second)
@@ -200,7 +214,7 @@ function addButtons(hero, clickCountDisplay) {
 
     // Create and append the farmer counter
     const farmerCounter = document.createElement('div');
-    farmerCounter.classList.add('click-count');
+    farmerCounter.classList.add('entity-count');
     farmerCounter.textContent = `Farmers: ${farmers}`;
     shopButton1Container.appendChild(farmerCounter);
 
@@ -224,7 +238,7 @@ function addButtons(hero, clickCountDisplay) {
 
     // Create and append the lemon tree counter
     const lemonTreeCounter = document.createElement('div');
-    lemonTreeCounter.classList.add('click-count');
+    lemonTreeCounter.classList.add('entity-count');
     lemonTreeCounter.textContent = `Lemon Trees: ${lemonTrees}`;
     shopButton2Container.appendChild(lemonTreeCounter);
 

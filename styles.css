@@ -81,6 +81,7 @@ nav a:hover {
     display: inline-block;
     text-align: center;
 }
+
 .click-count {
     font-size: 5em;  /* Make the number large */
     font-weight: bolder;
@@ -102,7 +103,7 @@ nav a:hover {
 .hero {
     font-family: 'Times New Roman', Times, serif;
     background: radial-gradient(circle at center, var(--basecolor3), var(--basecolor4)); /* Only gradient background */
-    height: 100vh;
+    height: 80vh;
     color: var(--textcolor);
     justify-content: center;
     text-align: center;
@@ -145,9 +146,6 @@ nav a:hover {
     border-radius: 5px;
 }
 
-
-
-
 .hero h1 {
     font-size: 3.5em;
     margin-bottom: 0.3em;
@@ -188,9 +186,16 @@ nav a:hover {
 
 /* Style the counters */
 .click-count {
-    font-size: 1em;  /* Adjust the size */
+    font-size: 4em;  /* Adjust the size */
     font-weight: bolder;
     color: var(--basecolor2); /* Same color as the buttons or adjust */
+    margin-top: 10px; /* Add space between the button and the counter */
+}
+
+.entity-count {
+    font-size: 1em;  /* Adjust the size */
+    font-weight: bolder;
+    color: var(--basecolor1); /* Same color as the buttons or adjust */
     margin-top: 10px; /* Add space between the button and the counter */
 }
 
