@@ -295,7 +295,7 @@ function addButtons(hero, clickCountDisplay) {
             clickCountDisplay.textContent = lemonClicks.toFixed(1);
             updateButtonPrices(); // Update after purchase
             shopButton1.style.backgroundColor = ''; // Reset color
-            farmerCounter.textContent = `Farmers: ${farmers}, LPS: ${((((farmers * 20) * ((lemonTrees / 5) + 1))) * (lemonades /*aha*/)) / 10}`;
+            farmerCounter.textContent = `Farmers: ${farmers}, LPS: ${((((farmers * 20)*((lemonTrees/10)+1)) / 100) * (lemonades /*aha*/)) / 100}`;
         } else {
             console.log('Not enough lemons for farmer!');
             Errorsound.play();
@@ -313,8 +313,8 @@ function addButtons(hero, clickCountDisplay) {
             clickCountDisplay.textContent = lemonClicks.toFixed(1);
             updateButtonPrices(); // Update after purchase
             shopButton2.style.backgroundColor = ''; // Reset color
-            lemonTreeCounter.textContent = `Lemon Trees: ${lemonTrees}, LPS: ${(((lemonTrees * 8)) * (lemonades /*aha*/))/10}`;
-            farmerCounter.textContent = `Farmers: ${farmers}, LPS: ${((((farmers * 20) * ((lemonTrees / 5) + 1))) * (lemonades /*aha*/)) / 10}`;
+            lemonTreeCounter.textContent = `Lemon Trees: ${lemonTrees}, LPS: ${(((lemonTrees * 8) / 100) * (lemonades /*aha*/))/100}`;
+            farmerCounter.textContent = `Farmers: ${farmers}, LPS: ${((((farmers * 20)*((lemonTrees/10)+1)) / 100) * (lemonades /*aha*/)) / 10}`;
         } else {
             console.log('Not enough lemons for lemon tree!');
             Errorsound.play();
