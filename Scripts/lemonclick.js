@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Start the automatic lemon generation
-    setInterval(autoGenerateLemons, 1000 / 10);
+    setInterval(autoGenerateLemons, 1000 / 100);
 });
 
 // Save game data to localStorage
@@ -103,9 +103,9 @@ function loadGameData() {
 
 function autoGenerateLemons() {
     // Add lemons for each lemon tree (1 per second)
-    lemonClicks += ((lemonTrees * 8) / 10) * (lemonades + 1);
+    lemonClicks += ((lemonTrees * 8) / 100) * (lemonades + 1);
     // Add lemons for each farmer (10 per second)
-    lemonClicks += (((farmers * 20)*((lemonTrees/5)+1)) / 10) * (lemonades + 1);
+    lemonClicks += (((farmers * 20)*((lemonTrees/5)+1)) / 100) * (lemonades + 1);
 
     // Update the display
     const clickCountDisplay = document.querySelector('.click-count');
@@ -295,7 +295,7 @@ function addButtons(hero, clickCountDisplay) {
             clickCountDisplay.textContent = lemonClicks.toFixed(1);
             updateButtonPrices(); // Update after purchase
             shopButton1.style.backgroundColor = ''; // Reset color
-            farmerCounter.textContent = `Farmers: ${farmers}, LPS: ${(((farmers * 20)*((lemonTrees/5)+1)) / 10) * (lemonades + 1)}`; // Update counter
+            farmerCounter.textContent = `Farmers: ${farmers}, LPS: ${(((farmers * 20)*((lemonTrees/5)+1))) * (lemonades + 1)}`; // Update counter
         } else {
             console.log('Not enough lemons for farmer!');
             Errorsound.play();
@@ -313,7 +313,7 @@ function addButtons(hero, clickCountDisplay) {
             clickCountDisplay.textContent = lemonClicks.toFixed(1);
             updateButtonPrices(); // Update after purchase
             shopButton2.style.backgroundColor = ''; // Reset color
-            lemonTreeCounter.textContent = `Lemon Trees: ${lemonTrees}, LPS: ${((lemonTrees * 8) / 10) * (lemonades + 1)}`; // Update counter
+            lemonTreeCounter.textContent = `Lemon Trees: ${lemonTrees}, LPS: ${((lemonTrees * 8)) * (lemonades + 1)}`; // Update counter
         } else {
             console.log('Not enough lemons for lemon tree!');
             Errorsound.play();
