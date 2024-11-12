@@ -4,6 +4,8 @@ let particles = [];
 let easteregg = false;
 let lemonTrees = 0;
 let farmers = 0;
+const lemonTreeBasePrice = 20;  // Example starting price
+const farmerBasePrice = 100;  // Example starting price
 
 // Load saved data from localStorage
 document.addEventListener('DOMContentLoaded', () => {
