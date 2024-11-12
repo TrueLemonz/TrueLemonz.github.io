@@ -286,7 +286,6 @@ function addButtons(hero, clickCountDisplay) {
     });
 
     // Button 1: Purchase farmer
-    // Button 1: Purchase farmer
     shopButton1.addEventListener('click', () => {
         const price = getFarmerPrice();
         if (lemonClicks >= price) {
@@ -296,7 +295,7 @@ function addButtons(hero, clickCountDisplay) {
             clickCountDisplay.textContent = lemonClicks.toFixed(1);
             updateButtonPrices(); // Update after purchase
             shopButton1.style.backgroundColor = ''; // Reset color
-            farmerCounter.textContent = `Farmers: ${farmers}, LPS: ${Math.round((((farmers * 20) * ((lemonTrees / 10) + 1)) * lemonades) * 10000)}`;
+            farmerCounter.textContent = `Farmers: ${farmers}, LPS: ${Math.floor((((farmers * 20) * ((lemonTrees / 10) + 1)) * lemonades))}`;
         } else {
             console.log('Not enough lemons for farmer!');
             Errorsound.play();
@@ -314,14 +313,15 @@ function addButtons(hero, clickCountDisplay) {
             clickCountDisplay.textContent = lemonClicks.toFixed(1);
             updateButtonPrices(); // Update after purchase
             shopButton2.style.backgroundColor = ''; // Reset color
-            lemonTreeCounter.textContent = `Lemon Trees: ${lemonTrees}, LPS: ${Math.round(((lemonTrees * 8) * lemonades) * 10000)}`;
-            farmerCounter.textContent = `Farmers: ${farmers}, LPS: ${Math.round((((farmers * 20) * ((lemonTrees / 10) + 1)) * lemonades) * 10000)}`;
+            lemonTreeCounter.textContent = `Lemon Trees: ${lemonTrees}, LPS: ${Math.floor(((lemonTrees * 8) * lemonades))}`;
+            farmerCounter.textContent = `Farmers: ${farmers}, LPS: ${Math.floor((((farmers * 20) * ((lemonTrees / 10) + 1)) * lemonades))}`;
         } else {
             console.log('Not enough lemons for lemon tree!');
             Errorsound.play();
             shopButton2.style.backgroundColor = 'red'; // Turn button red
         }
     });
+
 
 
     //lemonade
