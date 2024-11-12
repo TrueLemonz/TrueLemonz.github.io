@@ -7,6 +7,9 @@ let farmers = 0;
 const lemonTreeBasePrice = 20;  // Example starting price
 const farmerBasePrice = 100;  // Example starting price
 
+const Successsound = new Audio('SFX/success.mp3');
+const Errorsound = new Audio('SFX/error.mp3');
+
 // Load saved data from localStorage
 document.addEventListener('DOMContentLoaded', () => {
     // Load saved data
@@ -19,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (img && hero && clickCountDisplay) {
         clickCountDisplay.style.display = 'none';
 
+        // Revised click event listener with condition adjustment
         img.addEventListener('click', () => {
             console.log('Image clicked');
             const sound = new Audio('SFX/clickSFX.mp3');
@@ -32,11 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 clickCountDisplay.style.display = 'block';
             }
 
-            if (lemonClicks === 10 && easteregg === false) {
+            // Check if buttons need to be displayed
+            if (lemonClicks >= 10 && !easteregg) {
+                document.getElementById('hell-yeah').style.visibility = 'hidden';
                 unveilsfx.play();
                 addButtons(hero, clickCountDisplay);
                 easteregg = true;
                 hero.style.height = '120vh';
+                saveGameData(); // Save easteregg state to localStorage
             }
 
             createParticles(img);
@@ -46,7 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Load buttons if easteregg is already unlocked
         if (easteregg) {
             addButtons(hero, clickCountDisplay);
+            document.getElementById('hell-yeah').style.visibility = 'hidden'; // Hide 'hell-yeah' if easteregg is true
         }
+
 
         img.addEventListener('mousedown', () => {
             console.log('Mouse down');
@@ -342,4 +351,6 @@ function updateButtonPrices() {
         shopButtons[1].appendChild(treeImage);
         shopButtons[1].appendChild(document.createTextNode(`Purchase lemon tree (Price: ${getLemonTreePrice()} lemons)`));
     }
+    updateButtonColors();
+
 }
