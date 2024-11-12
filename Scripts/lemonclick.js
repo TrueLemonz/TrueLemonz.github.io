@@ -295,7 +295,7 @@ function addButtons(hero, clickCountDisplay) {
             clickCountDisplay.textContent = lemonClicks.toFixed(1);
             updateButtonPrices(); // Update after purchase
             shopButton1.style.backgroundColor = ''; // Reset color
-            farmerCounter.textContent = `Farmers: ${farmers}`; // Update counter
+            farmerCounter.textContent = `Farmers: ${farmers}, LPS: ${(((farmers * 20)*((lemonTrees/5)+1)) / 10) * (lemonades + 1)}`; // Update counter
         } else {
             console.log('Not enough lemons for farmer!');
             Errorsound.play();
@@ -313,7 +313,7 @@ function addButtons(hero, clickCountDisplay) {
             clickCountDisplay.textContent = lemonClicks.toFixed(1);
             updateButtonPrices(); // Update after purchase
             shopButton2.style.backgroundColor = ''; // Reset color
-            lemonTreeCounter.textContent = `Lemon Trees: ${lemonTrees}`; // Update counter
+            lemonTreeCounter.textContent = `Lemon Trees: ${lemonTrees}, LPS: ${((lemonTrees * 8) / 10) * (lemonades + 1)}`; // Update counter
         } else {
             console.log('Not enough lemons for lemon tree!');
             Errorsound.play();
