@@ -7,8 +7,8 @@ let farmers = 0;
 let lemonades = 1;
 const lemonTreeBasePrice = 20;  // Example starting price
 const farmerBasePrice = 100;  // Example starting price
-const lemonadefarmerprice = 80;
-const lemonadeprice = 100000;
+const lemonadefarmerprice = 60;
+const lemonadeprice = 60000;
 
 const Successsound = new Audio('SFX/success.mp3');
 const Errorsound = new Audio('SFX/error.mp3');
@@ -103,9 +103,9 @@ function loadGameData() {
 
 function autoGenerateLemons() {
     // Add lemons for each lemon tree (1 per second)
-    lemonClicks += (lemonTrees / 10) * (lemonades + 1);
+    lemonClicks += ((lemonTrees * 8) / 10) * (lemonades + 1);
     // Add lemons for each farmer (10 per second)
-    lemonClicks += ((farmers * 10) / 10) * (lemonades + 1);
+    lemonClicks += ((farmers * 20) / 10) * (lemonades + 1);
 
     // Update the display
     const clickCountDisplay = document.querySelector('.click-count');
@@ -327,15 +327,15 @@ function addButtons(hero, clickCountDisplay) {
 
     const makeLemonadeButton = document.createElement('button');
     makeLemonadeButton.classList.add('shop');
-    makeLemonadeButton.textContent = 'Make Lemonade (Cost: 100,000 lemons, 80 farmers)';
+    makeLemonadeButton.textContent = 'Make Lemonade (Cost: 60,000 lemons, 60 farmers)';
 
     makeLemonadeButtonContainer.appendChild(makeLemonadeButton);
     shopButtonsContainer.appendChild(makeLemonadeButtonContainer);
 
     makeLemonadeButton.addEventListener('click', () => {
-        if (lemonClicks >= 100000 && farmers >= 80) {
-            lemonClicks -= 100000;
-            farmers -= 80;
+        if (lemonClicks >= 60000 && farmers >= 60) {
+            lemonClicks -= 60000;
+            farmers -= 60;
             Successsound.play();
             clickCountDisplay.textContent = lemonClicks.toFixed(1);
             farmerCounter.textContent = `Farmers: ${farmers}`;
