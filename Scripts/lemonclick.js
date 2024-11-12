@@ -309,6 +309,33 @@ function addButtons(hero, clickCountDisplay) {
         }
     });
 
+    //lemonade
+    const makeLemonadeButtonContainer = document.createElement('div');
+    makeLemonadeButtonContainer.classList.add('shop-button-container');
+
+    const makeLemonadeButton = document.createElement('button');
+    makeLemonadeButton.classList.add('shop');
+    makeLemonadeButton.textContent = 'Make Lemonade (Cost: 100,000 lemons, 80 farmers)';
+
+    makeLemonadeButtonContainer.appendChild(makeLemonadeButton);
+    shopButtonsContainer.appendChild(makeLemonadeButtonContainer);
+
+    makeLemonadeButton.addEventListener('click', () => {
+        if (lemonClicks >= 100000 && farmers >= 80) {
+            lemonClicks -= 100000;
+            farmers -= 80;
+            Successsound.play();
+            clickCountDisplay.textContent = lemonClicks.toFixed(1);
+            farmerCounter.textContent = `Farmers: ${farmers}`;
+            alert('You made lemonade!');
+            updateButtonPrices();
+        } else {
+            console.log('Not enough resources to make lemonade!');
+            Errorsound.play();
+            makeLemonadeButton.style.backgroundColor = 'red'; // Turn button red
+        }
+    });
+
     // Check if buttons need to be red based on initial lemon count
     const price1 = getFarmerPrice();
     const price2 = getLemonTreePrice();
