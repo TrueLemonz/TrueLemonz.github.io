@@ -119,6 +119,7 @@ function autoGenerateLemons() {
 
 function updateButtonColors() {
     const shopButtons = document.querySelectorAll('.shop');
+    saveGameData();
     if (shopButtons.length >= 2) {
         const price1 = getFarmerPrice();
         const price2 = getLemonTreePrice();
@@ -287,6 +288,7 @@ function addButtons(hero, clickCountDisplay) {
 
     // Button 1: Purchase farmer
     shopButton1.addEventListener('click', () => {
+        saveGameData();
         const price = getFarmerPrice();
         if (lemonClicks >= price) {
             lemonClicks -= price;
@@ -305,6 +307,7 @@ function addButtons(hero, clickCountDisplay) {
 
     // Button 2: Purchase lemon tree
     shopButton2.addEventListener('click', () => {
+        saveGameData();
         const price = getLemonTreePrice();
         if (lemonClicks >= price) {
             lemonClicks -= price;
