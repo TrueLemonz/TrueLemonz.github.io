@@ -17,6 +17,17 @@
     box-sizing: border-box;
 }
 
+#overlayImage {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: opacity 0.5s ease;
+    z-index: 1000; /* Ensures it's on top */
+}
+
 body {
     font-family: Arial, sans-serif;
     color: var(--textcolor);
@@ -77,9 +88,53 @@ nav a:hover {
     }
 }
 
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.9;
+    }
+    60% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#overlayImage {
+    animation: rock 1s infinite alternate ease-in-out, fade 5s ease;
+}
+
+.status-box-container {
+    position: absolute;
+    top: 9.5em; /* Moves the container 20px down from the top */
+    left: 0;
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Optional background for readability */
+}
+
+
+.status-box {
+    border: 2px solid #333;
+    padding: 10px;
+    background-color: #1f1f1f;
+}
+
+
 .lemon {
     display: inline-block;
     text-align: center;
+    cursor: pointer !important;
 }
 
 .click-count {
@@ -108,7 +163,6 @@ nav a:hover {
     justify-content: center;
     text-align: center;
     padding: 2em 1em;
-
 
     display: flex;
     flex-direction: column;
@@ -171,11 +225,13 @@ nav a:hover {
 
 /* Create a container specifically for the .shop buttons and make it flex horizontally */
 .shop-buttons-container {
+    position: absolute;
+    right: 7em; /* Adjust the value as needed */
+    top: 60%; /* Center vertically or adjust as needed */
+    transform: translateY(-50%);
     display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 2em; /* Adds space between the buttons */
-    align-items: center; /* Center the buttons horizontally */
-    margin-top: 1em; /* Space between hell-yeah and shop buttons */
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .shop-button-container {
