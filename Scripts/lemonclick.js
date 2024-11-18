@@ -373,23 +373,15 @@ function updateFarmerBox() {
 }
 
 function updateTreeBox() {
+    const statusBoxContainer = updateStatusBoxContainer();
+
     let treeBox = document.getElementById('treeBox');
-    
     // Only create treeBox if it doesn't already exist
     if (!treeBox) {
         treeBox = document.createElement('div');
         treeBox.id = 'treeBox';
-        treeBox.style.border = '2px solid #333';
-        treeBox.style.padding = '10px';
-        treeBox.style.backgroundColor = '#f0f0f0';
-        
-        const statusBoxContainer = document.querySelector('.status-box-container'); // Select the container
-        if (statusBoxContainer) {
-            statusBoxContainer.appendChild(treeBox); // Append treeBox to statusBoxContainer
-            console.log('Tree box created and added to the status-box-container');
-        } else {
-            console.error("Status box container not found, unable to add tree box.");
-        }
+        treeBox.classList.add('status-box');
+        statusBoxContainer.appendChild(treeBox);
     }
 
     // Clear any existing content in treeBox
@@ -604,4 +596,3 @@ function updateButtonPrices() {
     }
     updateButtonColors();
 }
-
